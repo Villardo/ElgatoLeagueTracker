@@ -104,7 +104,7 @@
 			var minutes = Math.floor(seconds/60)
 			var seconds = Math.floor(seconds % 60)
 
-			return minutes + ":" + (seconds.toString().padStart(2, '0'))
+			return " "+ minutes + ":" + (seconds.toString().padStart(2, '0'))
 		}
 
 		function connectElgatoStreamDeckSocket(inPort, inPluginUUID, inRegisterEvent, inInfo) {
@@ -136,8 +136,8 @@
 						} else {							
 							var player = enemyPlayers[parseInt(key.split(",")[1])]
 							
-							var identifier = player.position != "" ? player.position : player.championName
-							timingString += secondsToMinuteString(ingameTimings[key]) + identifier + spells[key] + " "
+							var identifier = player.championName
+							timingString += secondsToMinuteString(ingameTimings[key]) +" "+ identifier +" "+ spells[key] + " "
 
 							numberdisplayAction.SetTitle(coordinatesToContext[key], current)
 							timings[key]--
